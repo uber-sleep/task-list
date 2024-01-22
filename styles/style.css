@@ -1,0 +1,50 @@
+body {
+    background-color: #232222;
+    margin: 32px;
+    font-family: "Noto Sans", sans-serif;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+h1.title {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style:italic;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+
+    grid-column: span 3;
+}
+
+section#form {
+    display: grid;  
+    grid-column: span 3;
+
+} 
+
+form#task-form {
+    display: grid;
+    align-items: center;
+    grid-column: span 3;
+}
+
+section#ul {
+    display: grid;  
+    grid-column: span 3;
+    margin: 32px 0 0;
+
+} 
+
+li {
+    border: 1px solid white;
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+}
