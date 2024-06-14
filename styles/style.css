@@ -1,50 +1,233 @@
+:root {
+    --dark-purple: #282C95;
+    --light-purple: #B0B3E7;
+    --text-black: #000;
+    --bg-light: #FFF;
+}
+
 body {
-    background-color: #232222;
-    margin: 32px;
-    font-family: "Noto Sans", sans-serif;
+    background-color: #fff;
+    margin: 1rem auto;
+    font-family: "Poppins", sans-serif;
+    height: 100%;
 }
 
-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-}
-
-h1.title {
-    color: #fff;
-    font-size: 2rem;
-    font-weight: 400;
-    font-style:italic;
+.all {
     display: flex;
-    align-self: center;
-    justify-content: center;
-
-    grid-column: span 3;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
 
-section#form {
-    display: grid;  
-    grid-column: span 3;
+/* Sessão Cabeçalho */
+section.title__container {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 0 3.5rem;    
+}
 
-} 
+section.title__container.active {
+    flex-direction: column-reverse;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 5rem 0 2rem;
+    width: 100%;
+    overflow: hidden;
+    background: var(--bg-light);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.title__img {
+    max-width: 24px;
+    animation: spin 3s infinite linear;
+}
+
+.title__img.active {
+    margin-top: 2.5rem;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.title__name {
+    font-size: 10px;
+    display: none;
+}
+
+.title__name.active {
+    display: flex;
+}
+
+.title__network-links {
+    display: none;
+}
+
+.title__network-links.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: .5rem;
+    font-size: 22px;
+}
+
+/* Sessão de App */
+.app__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.app {
+    max-width: 270px;
+}
+
+.app__title h1 {
+    color: #000;
+    font-size: 22px;
+    font-weight: 500;
+}
 
 form#task-form {
-    display: grid;
-    align-items: center;
-    grid-column: span 3;
+    display: flex; 
+    margin: 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black;
+    width: 100%
 }
 
-section#ul {
-    display: grid;  
-    grid-column: span 3;
-    margin: 32px 0 0;
-
-} 
-
-li {
-    border: 1px solid white;
-    padding: 20px;
-
+.task-container {
     display: flex;
     justify-content: space-between;
+    width: 100%;
+}
+
+input#task-input {
+    display: flex;
+    border: none;
+    width: auto; 
+}
+
+input#task-input:focus {
+    outline: none;
+}
+
+input#task-input::placeholder {
+    color: var(--light-purple);
+}
+
+#add-task-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--dark-purple);
+    font-size: 22px;
+}
+
+div.tasks {
+    display: flex; 
+    flex-direction: column; 
+}
+
+ul#task-list {
+    display: flex;
+    flex-direction: column; 
+    gap: .5rem;
+    width: 100%;
+}
+
+ul#task-list li {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 70% 15% 15%;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+    background-color: var(--light-purple);
+    color: var(--dark-purple);
+    padding: 1rem;
+    width: 100%;
+}
+
+ul#task-list li span {
+    word-break: break-all;
+    font-size: 12px;
+    text-align: left;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    background-color: var(--bg-light);
+    margin: 0;
+    color: var(--dark-purple);
+    width: 20px;
+    height: 20px;
+    border: .1rem solid var(--dark-purple);
+    display: grid;
+    place-content: center;  
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--dark-purple);
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+ul#task-list li button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin: 0; 
+    appearance: none; 
+    background-color: #fff;
+    border: .1rem solid var(--dark-purple);
+    cursor: pointer;
+}
+
+i.fa-trash {
+    font-size: 12px;
+    color: var(--dark-purple);
+}
+
+/* Sessão de Rodapé */
+.footer {
+    margin: 2rem;
+}
+
+.footer__rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: 12px;
+    text-align: center;
+    color: var(--light-purple);
 }

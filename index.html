@@ -3,37 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Taredas</title>
+    <title>Lista de Tareas</title>
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/b971dcdbc8.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header></header>
+    <div class="all">
+    <!-- Sessão de Cabeçalho -->
+     <section class="title__container">
+        <header>
+            <h3 class="title__name">Conheça meu trabalho!</h3>
+            
+            <nav class="title__network-links">
+                <li class="title__network__item"><a href="https://github.com/uber-sleep/">Portfólio</a></li>
+                <li class="title__network__item"><a href="https://github.com/uber-sleep/">Github</a></li>
+                <li class="title__network__item"><a href="https://www.linkedin.com/in/carolina-goncalves-/">Linkedin</a></li>
+                <li class="title__network__item"><a href="assets/CarolinaGoncalvesCV.pdf">Curriculo</a></li>
+            </nav>
+            
+            <img class="title__img active" src="assets/logo.png">
+        </header> 
+     </section>
+    
+     <!-- Sessão de App -->
+    <section class="app__container">
+        <div class="app">
+            <div class="app__title">
+                <h1>Lista de Tarefas</h1>
+            </div>
+            <div class="form">
+                <form action="" id="task-form">
+                    <div class="task-container">
+                        <input type="text" name="task-input" id="task-input" placeholder="Digite a sua tarefa">
+                        <button id="add-task-btn" type="submit"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </form>    
+            </div>
+            <div id="tasks">
+                <ul id="task-list">
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    <main>
-        <h1 class="title">Lista de Tarefas</h1>
-
-        <section id="form">
-            <form action="" id="task-form">
-                <!-- <label for="" id="task-label"></label> -->
-                <input type="text" name="task-input" id="task-input" placeholder="Digite a sua tarefa">
-                <button id="add-task-btn" type="submit">Adicionar</button>
-            </form>    
-        </section>
-
-        <section id="ul">
-            <ul id="task-list">
-            </ul>
-        </section>
-
-    </main>
-
-    <footer></footer>
-
+    <!-- Sessão Rodapé -->
+    <section class="footer">
+        <div class="footer__rodape">
+            <p>Desenvolvido por Carolina Gonçalves</p>
+            <p>2024</p>
+        </div>
+    </section>
+</div>
     <script src="app.js" type="application/javascript"></script>
 </body>
 </html>

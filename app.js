@@ -30,7 +30,7 @@ taskForm.addEventListener("submit", (event) => {
     // Adiciona um objeto representando a tarefa ao array
     tasks.push({
         title: taskInputValue,
-        dona: false
+        done: false
     });  
 
     // Armazena a versão atualizada do array na local storage
@@ -59,11 +59,7 @@ function taskRendering(title, done = false) {
         const done = event.target.checked;
         // Condição do evento        
         const thisSpan = thisTask.querySelector('span');
-        if(done) {
-            thisSpan.style.textDecoration = 'line-through'; 
-        } else {
-            thisSpan.style.textDecoration = 'none';
-        }
+        done ? thisSpan.style.textDecoration = 'line-through' : thisSpan.style.textDecoration = 'none';
 
         // Alteração no Array usando map
         tasks.map(t => { 
@@ -93,7 +89,7 @@ function taskRendering(title, done = false) {
 
     //Criando o button
     const removeBtn = document.createElement('button');
-    removeBtn.textContent = 'Remover item';
+    removeBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
     removeBtn.addEventListener("click", (event) => {
         const taskToBeRemoved = event.target.parentElement; 
         const titleTaskToBeRemoved = taskToBeRemoved.querySelector('span').textContent; 
@@ -109,8 +105,8 @@ function taskRendering(title, done = false) {
     });
 
     // Adiciona os elementos criados ao DOM
-    li.appendChild(input);
     li.appendChild(span);
+    li.appendChild(input);
     li.appendChild(removeBtn);
     taskListUl.appendChild(li);
 };
