@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #fff;
+    background-color: var(--bg-light);    
     margin: 1rem auto;
     font-family: "Poppins", sans-serif;
     height: 100%;
@@ -36,7 +36,7 @@ body {
 section.title__container {
     display: flex;
     flex-direction: column;
-    padding: .5rem 0 3.5rem;   
+    padding: 1.5rem;   
     
     transition: background-color 0.5s ease;
 }
@@ -64,6 +64,12 @@ header {
 .title__img {
     max-width: 24px;
     animation: spin 3s infinite linear;
+    opacity: .3;
+    cursor: pointer;
+}
+
+.title__img:hover {
+    opacity: 1;
 }
 
 .title__img.active {
@@ -99,6 +105,10 @@ header {
     display: none;
 }
 
+.title__network-links a:hover {
+    color: gray;
+}
+
 .title__network-links.active {
     display: flex;
     flex-direction: column;
@@ -126,7 +136,7 @@ header {
 }
 
 .app__title h1 {
-    color: #000;
+    color: var(--text-black);    
     font-size: 22px;
     font-weight: 500;
 }
@@ -135,8 +145,8 @@ form#task-form {
     display: flex; 
     margin: 2rem 0;
     padding-bottom: 1rem;
-    border-bottom: 1px solid black;
-    width: 100%
+    border-bottom: 1px solid var(--text-black); 
+    width: 100%;
 }
 
 .task-container {
@@ -146,7 +156,6 @@ form#task-form {
 }
 
 input#task-input {
-    display: flex;
     border: none;
     width: auto; 
 }
@@ -165,6 +174,10 @@ input#task-input::placeholder {
     cursor: pointer;
     color: var(--dark-purple);
     font-size: 22px;
+}
+
+#add-task-btn:hover {
+    color: var(--light-purple);
 }
 
 div.tasks {
@@ -198,6 +211,12 @@ ul#task-list li span {
     text-align: left;
 }
 
+input[type="checkbox"]:hover {
+    border: .1rem solid var(--bg-light);
+    background-color: var(--light-purple);    
+    color: var(--bg-light);
+}
+
 input[type="checkbox"] {
     appearance: none;
     background-color: var(--bg-light);
@@ -208,6 +227,7 @@ input[type="checkbox"] {
     border: .1rem solid var(--dark-purple);
     display: grid;
     place-content: center;  
+    cursor: pointer;
 }
 
 input[type="checkbox"]::before {
@@ -232,9 +252,15 @@ ul#task-list li button {
     height: 20px;
     margin: 0; 
     appearance: none; 
-    background-color: #fff;
+    background-color: var(--bg-light);    
     border: .1rem solid var(--dark-purple);
     cursor: pointer;
+}
+
+ul#task-list li button:hover {
+    border: .1rem solid var(--bg-light);
+    background-color: var(--light-purple);    
+    color: var(--bg-light);
 }
 
 i.fa-trash {
@@ -256,4 +282,88 @@ i.fa-trash {
     font-size: 12px;
     text-align: center;
     color: var(--light-purple);
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+    .app {
+        max-width: 470px;
+        width: 100%;
+    }
+
+    .app__title h1 {
+        font-size: 28px;
+    }
+
+    input#task-input::placeholder {
+        font-size: 12px;
+    }
+
+    ul#task-list li span {
+        font-size: 14px;
+    }
+    
+    i.fa-trash {
+        font-size: 14px;
+    }
+
+    input[type="checkbox"] {
+        width: 24px;
+        height: 24px;
+    }
+    
+    ul#task-list li button {
+        width: 24px;
+        height: 24px;
+    }
+
+    ul#task-list li {
+        grid-template-columns: 80% 10% 10%;
+    }
+    
+    i.fa-trash {
+        font-size: 14px;
+    }
+}
+
+/* DESKTOP */
+@media (min-width: 1440px) {
+    .app {
+        max-width: 670px;
+        width: 100%;
+    }
+
+    .app__title h1 {
+        font-size: 36px;
+    }
+    
+    input#task-input::placeholder {
+        font-size: 14px;
+    }
+
+    ul#task-list li span {
+        font-size: 18px;
+    }
+    
+    i.fa-trash {
+        font-size: 18px;
+    }
+    
+    input[type="checkbox"] {
+        width: 32px;
+        height: 32px;
+    }
+
+    ul#task-list li button {
+        width: 32px;
+        height: 32px;
+    }
+
+    ul#task-list li {
+        grid-template-columns: 80% 10% 10%;
+    }
+    
+    i.fa-trash {
+        font-size: 14px;
+    }
 }
